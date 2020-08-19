@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "ZombieArena.h"
 
 using namespace sf;
 
@@ -38,7 +39,14 @@ int main()
 	// Create an instance of the Player class
 	Player player;
 	// The boundaries of the arena
-	IntRect arena; //Collapsed Setup Code
+	IntRect arena; 
+
+	// Create the background
+	VertexArray background;
+	// Load the texture for our background vertex array
+	Texture textureBackground;
+	textureBackground.loadFromFile("graphics/background_sheet.png");
+
 	// The main game loop
 	while (window.isOpen())
 	{
@@ -160,8 +168,13 @@ int main()
 				arena.height = 500;
 				arena.left = 0;
 				arena.top = 0;
+
+				// Pass the vertex array by reference
+				// to the createBackground function
+				int tileSize = createBackground(background, arena);
+
 				// We will modify this line of code later
-				int tileSize = 50;
+				//int tileSize = 50;
 				// Spawn the player in the middle of the arena
 				player.spawn(arena, resolution, tileSize);
 				// Reset the clock so there isn't a frame jump
@@ -220,10 +233,19 @@ int main()
 		if (state == State::GAME_OVER)
 		{
 		}
+		
+		////TODO Testing VertexArrays
+		//VertexArray testTriangle(Triangles, 3);
+		//testTriangle[0].position = Vector2f(10.0f, 10.0f);
+		//testTriangle[1].position = Vector2f(100.0f, 10.0f);
+		//testTriangle[2].position = Vector2f(100.0f, 100.0f);
+		//testTriangle[0].color = Color::Red;
+		//testTriangle[1].color = Color::Blue;
+		//testTriangle[2].color = Color::Green;
+		//window.draw(testTriangle);
+		
+		
 		window.display();
-
-
-
 
 	} 
 	//End Game Loop
