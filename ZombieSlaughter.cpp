@@ -173,8 +173,6 @@ int main()
 				// to the createBackground function
 				int tileSize = createBackground(background, arena);
 
-				// We will modify this line of code later
-				//int tileSize = 50;
 				// Spawn the player in the middle of the arena
 				player.spawn(arena, resolution, tileSize);
 				// Reset the clock so there isn't a frame jump
@@ -221,6 +219,10 @@ int main()
 			// set the mainView to be displayed in the window
 			// And draw everything related to it
 			window.setView(mainView);
+
+			// Draw the background
+			window.draw(background, &textureBackground);
+
 			// Draw the player
 			window.draw(player.getSprite());
 		}
