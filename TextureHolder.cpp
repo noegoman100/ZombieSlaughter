@@ -6,7 +6,7 @@ TextureHolder* TextureHolder::member_static_Instance = nullptr;
 
 TextureHolder::TextureHolder()
 {
-	assert(member_static_Instance == nullptr); //Make sure it is set to nullPtr. If it has something, assert will end the program. 
+	assert(member_static_Instance == nullptr); //Make sure it is set to nullPtr. If it has something, assert will end the program. Singleton.
 	member_static_Instance = this;
 }
 
