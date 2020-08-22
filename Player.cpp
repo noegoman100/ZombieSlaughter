@@ -45,8 +45,7 @@ Time Player::getLastHitTime()
 }
 bool Player::hit(Time timeHit)
 {
-	if (timeHit.asMilliseconds()
-		- m_LastHit.asMilliseconds() > 200)
+	if (timeHit.asMilliseconds() - m_LastHit.asMilliseconds() > 200)
 	{
 		m_LastHit = timeHit;
 		m_Health -= 10;
